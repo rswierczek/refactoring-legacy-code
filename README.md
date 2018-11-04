@@ -1,2 +1,2 @@
-# refactoring_legacy_code
+# refactoring-legacy-code
 Working with legacy code
