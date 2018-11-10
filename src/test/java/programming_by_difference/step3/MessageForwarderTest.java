@@ -1,4 +1,4 @@
-package programming_by_difference;
+package programming_by_difference.step3;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,14 +8,13 @@ import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.Properties;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class MailForwarderTest {
+class MessageForwarderTest {
 
     private Session session;
 
@@ -32,7 +31,10 @@ class MailForwarderTest {
 
     @Test
     public void testAnonymous () throws Exception {
-        MailForwarder forwarder =  new AnonymousMessageForwarder(session);
+        Properties configuration = new Properties();
+        configuration.setProperty("anonymous", "true");
+
+        MessageForwarder forwarder = new MessageForwarder(session, configuration);
         Message expectedMessage = forwarder.forwardMessage (makeFakeMessage());
         assertEquals ("anon-members@" + forwarder.getDomain(),
                 expectedMessage.getFrom ()[0].toString());

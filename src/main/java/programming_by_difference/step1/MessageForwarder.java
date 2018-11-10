@@ -1,4 +1,4 @@
-package programming_by_difference;
+package programming_by_difference.step1;
 
 import javax.mail.Address;
 import javax.mail.Message;
@@ -7,19 +7,19 @@ import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class MailForwarder {
+public class MessageForwarder {
     private Session session;
+    private String domain = "example.com";
 
-    public MailForwarder(Session session) {
+
+    public MessageForwarder(Session session) {
         this.session = session;
     }
-
 
     public Message forwardMessage(Message message) throws MessagingException {
         MimeMessage forward = new MimeMessage (session);
         forward.setFrom (getFromAddress (message));
         return forward;
-
     }
 
     protected InternetAddress getFromAddress(Message message)
@@ -35,6 +35,6 @@ public class MailForwarder {
     }
 
     public String getDomain() {
-        return "example.com";
+        return domain;
     }
 }
