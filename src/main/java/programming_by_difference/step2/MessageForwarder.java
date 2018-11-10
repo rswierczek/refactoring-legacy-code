@@ -8,7 +8,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-public class MessageForwarder {
+public abstract class MessageForwarder {
     private Session session;
     private Properties configuration;
     private String domain = "example.com";
