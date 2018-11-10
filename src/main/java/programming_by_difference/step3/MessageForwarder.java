@@ -30,15 +30,24 @@ public class MessageForwarder {
 
         String fromAddress = getDefaultFrom();
         if (configuration.getProperty("anonymous").equals("true")) {
-            fromAddress = "anon-members@" + domain;
+            fromAddress = getFromAnonymous();
         }
         else {
-            Address [] from = message.getFrom ();
-            if (from != null && from.length > 0) {
-                fromAddress = from [0].toString ();
-            }
+            fromAddress = getFrom(message, fromAddress);
         }
         return new InternetAddress (fromAddress);
+    }
+
+    private String getFrom(Message message, String fromAddress) throws MessagingException {
+        Address[] from = message.getFrom ();
+        if (from != null && from.length > 0) {
+            fromAddress = from [0].toString ();
+        }
+        return fromAddress;
+    }
+
+    private String getFromAnonymous() {
+        return "anon-members@" + domain;
     }
 
     private String getDefaultFrom() {
