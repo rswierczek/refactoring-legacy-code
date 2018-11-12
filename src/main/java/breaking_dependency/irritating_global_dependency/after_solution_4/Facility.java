@@ -1,8 +1,8 @@
-package breaking_dependency.irritating_global_dependency.after_solution_2;
+package breaking_dependency.irritating_global_dependency.after_solution_4;
 
 
 /**
- * Solution 2: using resetForTesting.
+ * Solution 4: Extract Interface
  */
 public class Facility {
     public static final int RESIDENCE = 0;
@@ -11,7 +11,7 @@ public class Facility {
     public Facility(int facilityCode, String owner, PermitNotice notice)
             throws PermitViolation {
         Permit associatedPermit =
-                PermitRepository.getInstance().findAssociatedPermit(notice);
+                PermitRepositoryImpl.getInstance().findAssociatedPermit(notice);
         if (associatedPermit.isValid() && !notice.isValid()) {
             basePermit = associatedPermit;
         } else if (!notice.isValid()) {

@@ -1,8 +1,8 @@
-package breaking_dependency.irritating_global_dependency.after_solution_2;
+package breaking_dependency.irritating_global_dependency.after_solution_3;
 
 
 /**
- * Solution 2: using resetForTesting.
+ * Solution 3: using Subclass and Override Method.
  */
 public class Facility {
     public static final int RESIDENCE = 0;

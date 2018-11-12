@@ -9,7 +9,7 @@ package breaking_dependency.irritating_global_dependency.after_solution_2;
 public class PermitRepository {
     private static PermitRepository instance;
 
-    PermitRepository(){}
+    private PermitRepository(){}
 
     public static PermitRepository getInstance()
     {
