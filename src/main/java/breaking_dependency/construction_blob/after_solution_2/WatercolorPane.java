@@ -1,10 +1,8 @@
-package breaking_dependency.construction_blob.before;
+package breaking_dependency.construction_blob.after_solution_2;
 
 
 /**
- * If a constructor constructs a large number of objects internally or accesses a large number of globals, we
- * could end up with a very large parameter list. In worse situations, a constructor
- * creates a few objects and then uses them to create other objects, like this:
+ * Supersede Instance Variable
  */
 public class WatercolorPane {
     private FocusWidget cursor;
@@ -19,5 +17,13 @@ public class WatercolorPane {
             is embedded in a blob of object creation.
          */
         cursor = new FocusWidget(brush, backgroundPanel);
+    }
+
+    /**
+     * Supersede Instance Variable for test
+     * @param cursor
+     */
+    void setCursor(FocusWidget cursor) {
+        this.cursor = cursor;
     }
 }
