@@ -1,8 +1,8 @@
-package breaking_dependency.credit_validator.step2;
+package breaking_dependency.irritating_parameter.step1;
 
 import java.io.IOException;
 
-public class RGHConnectionImpl implements RGHConnection {
+public class RGHConnection {
 
     private RFDIReport report;
 
@@ -10,21 +10,17 @@ public class RGHConnectionImpl implements RGHConnection {
      * When an RGHConnection is constructed, it connects with a server
      * @param port
      * @param Name
-     * @param password
+     * @param passwd
      * @throws IOException
      */
-    public RGHConnectionImpl(int port, String Name, String password)
+    public RGHConnection(int port, String Name, String passwd)
             throws IOException {
         System.out.println("Connecting please wait ... ");
     }
 
-    @Override
     public void connect() {}
-    @Override
     public void disconnect() {}
-    @Override
     public RFDIReport RFDIReportFor(int id) { return report; }
-    @Override
     public ACTIOReport ACTIOReportFor(int customerID) { return null; }
-    
+
 }

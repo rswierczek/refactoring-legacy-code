@@ -1,4 +1,4 @@
-package breaking_dependency.credit_validator.step2;
+package breaking_dependency.irritating_parameter.step2;
 
 /**
  * The FakeConnection class is a little weird. How often do we ever write methods
