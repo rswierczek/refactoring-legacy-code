@@ -10,4 +10,8 @@ public class CreditValidator
             throws InvalidCredit {
         return null;
     }
+
+    public double getValidationPercent() {
+        return 0;
+    }
 }
